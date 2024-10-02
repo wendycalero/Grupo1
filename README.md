@@ -22,7 +22,10 @@ Estos $153,662 son los más críticos, ya que el modelo no los identificó corre
 
 Estos valores pueden parecer alarmantes, sin embargo, el modelo identificó correctamente el 93% de los TN y el 95% de los TP, siendo asi que en valores relativos, el modelo permite un uso eficiente de los recursos destinados a la retencion de clientes.
 
+FEATURE IMPORTANCE:
+Este gráfico muestra la explicabilidad del modelo utilizando SHAP (SHapley Additive exPlanations) para identificar las características más importantes que influyen en la predicción de un cliente en particular. En este caso, el gráfico está mostrando la contribución de cada característica (feature) a la predicción realizada por el modelo de machine learning.
 
+En nuestro segundo grafico  nos muestra que las características más influyentes que reducen la probabilidad de churn son Online Security, Total Charges, y Contract (contrato a largo plazo). Por otro lado, factores como no haber hecho referidos, tener un servicio de streaming, y el costo mensual aumentan ligeramente la probabilidad de churn, aunque estos impactos son pequeños en comparación con las características más importantes
 
 
 
