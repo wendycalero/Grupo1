@@ -1,5 +1,42 @@
 Presentacion Oral Churn:
-
+El problema: "Churn", o tasa de abandono, PwC menciona que en 2020, las empresas de telecomunicaciones globales enfrentaban tasas de churn de entre el 15% y el 30% anual
+Adquirir nuevos clientes resulta considerablemente más costoso que retener a los ya existentes. Según estudios Harvard Business, la pérdida de un cliente puede costar entre 5 a 25 veces más que retenerlo.
+Precios altos, calidad del servicio, insatisfacción con soporte al cliente, y campañas de marketing de sus competidores. Además, el avance en la tecnología ha permitido que los consumidores comparen y cambien de manera rápida y sencilla.
+Nuestro Modelo de predicción de churn busca identificar a los clientes con mayor riesgo de deserción, permitiendo a la empresa tomar acciones proactivas para retenerlos. Esto se traduce en un aumento de la fidelización de clientes.
+Soluciones existentes: Algunas soluciones que se encuentran en el mercado en el ámbito tecnológico son las siguientes:
+•	Movistar: Programa de Fidelización de Clientes la cual utiliza big data y ML para ofrecer recompensas y beneficios personalizados a los clientes.
+•	Orange: Modelos Predictivos de Churn analiza datos en tiempo real y predecir quienes estan en riesgo de abandonar la empresa.
+•	T-Mobile: Patrones de uso y quejas, empleo modelos de análisis predictivo para reducir el churn entre sus clientes.
+El contexto de nuestros datos es que tenemos 7043 clientes de los Estados Unidos en especifico del estado de California del 3er trimestre, también se encontró valores faltantes en los features de Offer e Internet Type los cuales se trato y reemplazo de forma pertinente.
+Metodología: Se observa en los diferentes graficos el histograma de algunas variables entre ellas, tenemos a la edad donde la mayor densidad de clientes se encuentra entre los 40 a 60 años, sin embargo, hay una frecuencia considerablemente alta en los clientes que están alrededor de sus veintes. En total Extra Data Charges notamos que los clientes no suelen gastar más allá de su plan original porque el ratio oscila entre 0 y 1. Y en Monthly Charge los valores del cargo mensual de los clientes suelen ser de alrededor de $20 pero también hay algunos clientes que pagan más de $100 mensual.
+En Distribución de la variable de satisfacción la mayoría de los clientes con un 37.5% tiene un nivel de satisfacción del 3 seguido de un 25.5% con 4 y hay una minoría del 7.3% con un nivel de 2%.
+Por otra parte, en la distribución de numero de dependientes más del 70% de nuestros clientes no tienen dependientes, es decir, que el servicio que consumen de la empresa suele ser individual y solo un pequeño porcentaje lo comparte con algunos de sus dependientes que estos están entre 1 hasta 3 personas.
+Se observa que la variable relacionándolo con la target que es el churn label, es decir, la tasa de deserción del cliente se encuentra en dos extremos cuando la satisfacción del cliente esta entre 1 y 2 hay un 100% de probabilidad que abandone el cliente la empresa mientras que si tiene un 4 o 5 este tiende a permanecer en la empresa en todos los casos.
+Aquellos que tienen seguridad online tienden a quedarse en un 85% en comparación a aquellos que no tienen con un 67%. También mientras mas tiempo el cliente tenga con la empresa menos probabilidad de que la abandone.
+Procesamiento de datos se dividió de la siguiente manera el train data con un 70% son los datos que se usará para entrenar el modelo y es probable que el modelo tenga suficiente información para aprender de manera efectiva. Validation data fueron usados para optimizar el modelo y ajustar hiperparametros y test data los cuales son independientes para evaluar el rendimiento final del modelo con un 15% para cada una.
+Feature Engineering:
+•	Extra Charges Ratio: (Total Extra Data Charges)/(Total Charges)
+El propósito de este ratio era para conocer el porcentaje exacto extra que los clientes utilizan fueran de su plan de servicio contratado.
+•	Has Streaming Service ('Streaming TV', 'Streaming Movies', 'Streaming Music')
+Para conocer por cliente si alguno tenia al menos uno de los servicios anteriormente mencionados si lo tenia se llenaba el valor de 1 y sino 0.
+•	Región California, se dividió de la siguiente manera:
+Norte de California: Si la latitud es mayor a 38.
+Centro de California: Si la latitud está entre 36 y 38 (inclusive).
+Sur de California: Si la latitud es menor a 36.
+Porque las ciudades eran mas de 1000 que no se repetían pues eran valores únicos y por su dificultad de codificaciones se opto por dividirlos en regiones.
+Codificación de features categóricos:
+Se utilizo: OrdinalEncoder y funciones para iterar y acelerar el proceso de reemplazo en valores booleanos. Hay valores excluyentes tales como; Population, Zip Code y Customer ID.
+Entrenamiento y tuneo de hiperparámetros
+La métrica que se buscó optimizar fue el f1 para nuestro primer modelo por dos razones:
+•	Balance entre precisión y sensibilidad: La F1 considera tanto la capacidad del modelo para identificar correctamente a los clientes que se irán (recall) y La precisión mide cuántos clientes que el modelo predice que se irán realmente tienen la intención de irse, evitando gastos innecesarios.
+•	Efectividad en situaciones de clases desbalanceadas: Dado que en la mayoría de los casos de churn (abandono) existe un desbalance de clases, con muchos más clientes que se quedan comparado con los que se van, la F1 ayuda a evaluar de manera más justa el rendimiento del modelo.
+Explicabilidad del modelo
+En la gráfica de SHAP Summary Plot ilustra la importancia de cada característica en un modelo predictivo, usando colores para distinguir entre valores altos (rosa) y bajos (azul). La anchura de cada variable refleja su impacto en la predicción. Características como "Satisfaction Score" y "Online Security" tienen una influencia significativa en el resultado del modelo.
+Por otra parte en SHAP Feature Importance Plot muestra las variables más importantes del modelo, ordenadas según su impacto promedio (valor SHAP) en las predicciones. Las variables con mayor influencia son:
+1.	Satisfaction Score: Tiene el mayor efecto en el modelo.
+2.	Online Security: Importancia moderada.
+3.	Contract y Monthly Charge: Tienen menor impacto comparado con las anteriores, pero aún relevantes.
+Las demás variables, como Age, Total Charges, y Tenure in Months, contribuyen menos al resultado final del modelo.
 
 Resultados:
 El proyecto se enfoca en maximizar la retención de clientes en riesgo de abandonar el servicio, clasificados como en riesgo de abandonar el servicio. 
