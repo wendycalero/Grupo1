@@ -40,13 +40,12 @@ Feedback y Monitoreo:
  
 Rol del Modelo en la Solución
  
-   Decisiones Supervisadas por Humanos:
-       El modelo generará informes de riesgo de churn, que serán revisados por el equipo de atención al cliente y marketing. 
-       
+Decisiones Supervisadas por Humanos:
+El modelo generará informes de riesgo de churn, que serán revisados por el equipo de atención al cliente y marketing.      
 Las decisiones finales sobre las acciones a tomar estarán basadas en las predicciones del modelo, pero también en el juicio y la experiencia del personal.
  
-   Automatización de Acciones:
-   Respuestas automatizadas, como el envío de correos electrónicos.
+Automatización de Acciones:
+Respuestas automatizadas, como el envío de correos electrónicos.
  
 Alineación con el Rendimiento del Modelo y el Negocio
 
@@ -64,4 +63,21 @@ Limitaciones y autocritica
 Falta de variables predictivas relacionadas con factores externos o temporales (Competencia y tedencias), que podrian influir en la variable objetivo.
 Falta de datos que expliquen una temporalidad o estacionalidad.
 El tamaño del conjunto de datos limita la capacidad del modelo, para aprender patrones generalizables.
-La interacción de las variables no fue explorada a fondo.  
+La interacción de las variables no fue explorada a fondo. 
+
+Conclusiones y recomendaciones:
+Los contratos mes a mes tieenn un agran cantidad de clientes que abandonan el servicio a diferencia de aquellos que tien dos años; por lo que se recomienda promocionar a los contratos que sean de al menos 1 año para disminuir la deserción de los clientes.
+Se debe mantener una puntuación de satisfación de nivel 3, porque si esta baja hay una probabilidad de más del 90% que el cliente decida dejar la empresa.
+Servicios como la fibra óptica de la compañia tiene que ser revisada porque sus niveles de deserción son altos en comparacion con las otras opciones; es decir, que existe una percepción negativa en la calidad de la fibra óptica lo cual debe evaluarse.
+A partir de las variables más importantes que determinó el modelo, se recomienda incorporar en los planes promocionales aquellos que aporten una retención de clientes.
+
+Future Work
+Mejoras del proyecto
+Incluir datos que aporten al comportamiento del consumidor, como permancencia en otra compañia de telecomunicaciones, suscripciones adicionales a su plan contratado. Llamadas de servicio al cliente, promociones aplicadas y patrones de uso podrían aumentar la capacidad
+predictiva del modelo.
+
+Tiempo real
+La predicción en tiempo real podría deterctar comportamientos de churn inmediatamente.
+
+Monitoreo y mejora contínua
+Actualizar el modelo cada 6 meses con nuevos datos, para evaluar el comportamiento del mercado y los clientes.
